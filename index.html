@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+<style>
+    #clock{
+        font-size: 170px;
+        text-align: center;
+        border: 2px solid gray;
+        border-radius: 20px;
+        border-color: tomato;
+        margin:auto;
+        width: 940px;
+        color: tomato;
+        background-color: black;
+    }
+    h1{
+        font-size: 50px;
+       text-align: center;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+    #day,#date{
+        color: brown;
+        padding: 30px;
+        font-size: 55px;
+        margin: 100px;
+        text-align: center;
+    }
+</style>
+</head>
+<body>
+  <h1>Clock</h1>
+      <br>
+    <div id="clock"> TIME</div>
+
+    <div id ="day">Day</div>
+    <div id ="date">Date</div>
+</body>
+<script>
+
+
+
+const Z = new Date();
+setInterval(time, 1000);
+
+function time(){
+    let time = new Date();
+    let hour = time.getHours();
+    let min = time.getMinutes();
+    let sec = time.getSeconds();
+    am_pm ="AM";
+
+    if(hour>12){
+        hour -= 12;
+      am_pm = "PM"
+        }
+    if (hour == 0){
+        hour =12;
+        am_pm ="AM"
+    }
+
+        // hour = hour < 10 ? "0" + hour : hour;
+        // min = min < 10 ? "0" + min : min;
+        // sec = sec < 10 ? "0" + sec : sec;
+
+let ct = hour + ":" + min + ":" + sec  + ":" + am_pm
+document.getElementById("clock").innerHTML = ct;
+
+}
+
+let day;
+switch(new Date().getDay()){
+    case 0:day='Sunday';break;
+    case 1:day='Monday';break;
+    case 2:day="Tuesday";break;
+    case 3:day="Wednesday";break;
+    case 4:day="Thursday";break;
+    case 5:day="Friday";break;
+    case 6:day="Saturday";break;
+}
+// if(day =="Sunday" )
+
+datee = Z.getDate();
+month = Z.getMonth();
+year = Z.getFullYear();
+
+document.getElementById("day").innerHTML = "Today's Day Is : "+ day ;
+document.getElementById("date").innerHTML = "Today's Date Is : "+  datee + '/' + month +"/"+ year ;
+// function myTimer() {
+//   const date = new Date();
+//   document.getElementById("clock").innerHTML = date.toLocaleTimeString();
+// }
+
+
+</script>
+</html>
